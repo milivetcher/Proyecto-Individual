@@ -1,0 +1,47 @@
+
+
+.wallpaper{
+    background-image: url(../../img/fanny-gustafsson-71z7eCLS4Uo-unsplash.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    
+}
+.center {
+    text-align:left;
+    margin-top: 100px;
+    margin-left: 40px;
+    
+}
+
+
+.home-button{
+    background-color:#fff4d8;
+    padding: 30px;
+    color: #4c1823;
+    font-style:unset;
+    border-radius: 12px;
+    width: 20%;
+    font-size: 24px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    opacity: 0.8;
+    cursor: pointer;
+    border: 0ch;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    margin-top: 100px;
+    margin-left: 40px;
+}
+.home-button:hover {
+    background-color:#4c1823;
+    color:#fff4d8;
+    
+}
+@media (max-width: 715px ){
+    .home-button{
+        font-size: 15px;
+    }
+}
