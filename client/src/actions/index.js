@@ -52,7 +52,7 @@ export function getTypes(){
     return async function(dispatch){
         try{
             var json = await axios('http://localhost:3001/diets') //--> el axios.get viene por defecto
-            //console.log(json)
+            console.log(json)
         
             return dispatch({
                 type: 'GET_DIETS',

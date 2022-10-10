@@ -81,10 +81,10 @@ function rootReducer (state = initialState, action ){
         case 'ORDER_BY_HEALTHY':
             let arrayOrdenadoHealthy = action.payload  === 'mostHealthFirst' ?
             state.recipes.sort(function(a,b){
-                if(a.healthScore > b.healthScore){
+                if(a.healthScore>b.healthScore){
                     return 1;
                 }
-                if(b.healthScore < a.healthScore){
+                if(b.healthScore > a.healthScore){
                     return -1;
                 }
                 return 0;
@@ -93,7 +93,7 @@ function rootReducer (state = initialState, action ){
                 if(a.healthScore<b.healthScore){
                     return -1;
                 }
-                if(b.healthScore>a.healthScore){
+                if(b.healthScore<a.healthScore){
                     return 1;
                 }
                 return 0;
@@ -114,7 +114,7 @@ function rootReducer (state = initialState, action ){
                 ...state
             }
         case 'GET_DIETS':
-            //console.log(action.payload)
+            console.log(action.payload)
             return{
                 ...state,
                 typeDiets: action.payload

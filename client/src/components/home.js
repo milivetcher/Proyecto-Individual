@@ -5,13 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRecipes, filterByDiet, orderByTitle, orderByHealthy, getTitleRecipes } from "../actions";
 import Recipe from "./recipe.js";
 import Paginado from "./paginado";
-import SearchBar from "./SearchBar";
-
+import SearchBar from "./SearchBar.js";
 import './styles/recipe.css';
-
-
-
 import "./styles/home.css";
+
 
 
 const Home = ()=>{
@@ -88,7 +85,6 @@ const Home = ()=>{
       <SearchBar/>
       </h1>
       </center>
-      
       <div className="principal">
         <select onChange={e=> handleOrderAlf(e)} className="select">
           <option value = 'asc'>A-Z</option>
@@ -132,7 +128,7 @@ const Home = ()=>{
               <Recipe 
               title={e.title}
               typeDiets={nuevo} 
-              img={e.img} 
+              img={e.image} 
               key={e.id}
               /> 
               </Link>

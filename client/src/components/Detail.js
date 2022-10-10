@@ -24,10 +24,11 @@ export default function Detail(props){
         //console.log(foundRecipe[0].hasOwnProperty('types'))
         foundRecipe[0].hasOwnProperty('types')?
         foundRecipe[0].types.map(d=>nuevo.push(d.name)):
-        foundRecipe[0].typeDiets.map(d=>nuevo.push(d));
+        foundRecipe[0].diets.map(d=>nuevo.push(d));
         //console.log(nuevo)
         foundRecipe[0].hasOwnProperty('analyzedInstructions')?
-        foundRecipe[0].analyzedInstructions.map(p=>p.steps.map(d=>intructionsApi.push(d))):
+        JSON.parse(foundRecipe[0].analyzedInstructions).map(d=>d.steps.map(r=>intructionsApi.push(r))):
+       
         intructionsApi.push(foundRecipe[0].instructions)
 
     }
@@ -70,7 +71,7 @@ export default function Detail(props){
                 intructionsApi.map(j=><p key={j.number}>{j.number + ': '+j.step}</p>)}</p>
                 
                 <h3>Esta receta es apta para dietas: {nuevo.map(d=> ' -'+d)}</h3>
-                <h2> {foundRecipe[0].dishTypes? 'Tipo de plato: '+ foundRecipe[0].dishTypes.map(p=> ' '+ p): '' }</h2>
+                <h2> {foundRecipe[0].dishTypes? 'Tipo de plato: '+ foundRecipe[0].dishTypes.map(p=> ' '+ JSON.parse(p).name): '' }</h2>
                 </div> 
                 </div>:
 

@@ -10,7 +10,7 @@ const { REAL } = require('sequelize');
 const {Recipe, Type} = require('../db');
 const { Sequelize } = require('sequelize');
 
-const apiKey= 'fe41fdaf492d4e65a222b2175ffd78b2';
+const apiKey= 'ae66e04f41af4f04a9446799cb8b5c9d';
 
 
 const  getApiInfo = async () => {
@@ -22,7 +22,7 @@ const  getApiInfo = async () => {
              id: e.id, 
              title: e.title,
              image: e.image,
-             diets: e.diets.map((d)=> {return JSON.stringify(d)}), // un array con los tipos de dieta de esa receta
+             diets: e.diets.map((d)=> {return d}), // un array con los tipos de dieta de esa receta
              spoonacularScore : e.spoonacularScore,   // puntuacion
              dishTypes: e.dishTypes.map((d)=> {return JSON.stringify({name:d})}), // tipo de plato
              summary: e.summary,            // un resumen del plato
@@ -41,7 +41,7 @@ const  getApiInfo = async () => {
    
 };
 
-getApiInfo();
+//getApiInfo();
 const getDbInfo= async () => {
     return await Recipe.findAll({
         include:{
@@ -56,8 +56,8 @@ const getDbInfo= async () => {
 
 
 const getAllrecipes = async () => {
-    //const apiRecipes = await getApiInfo();
-    const apiRecipes = API;
+    const apiRecipes = await getApiInfo();
+    //const apiRecipes = API;
     const dbRecipes = await getDbInfo();
     let allInfo = await [...apiRecipes,...dbRecipes];
     
@@ -112,11 +112,11 @@ router.get('/diets', async (req, res) => {
     const infoApi = await getApiInfo() //--> traigo la info de la API
     
     //const infoApi = API;//--> viene en un  json
-    //const obj = JSON.parse(infoApi)
-    //console.log(obj.results)
+    const obj = infoApi
+    console.log(obj)
     
     
-    const types = infoApi.results.map(e => e.diets); // --> Mapeo la info
+    const types = infoApi.map(e => e.diets); // --> Mapeo la info
     //console.log(types);//--> a ver si mapea bien
 
     const arr= [];
@@ -126,7 +126,7 @@ router.get('/diets', async (req, res) => {
         }
     }
     const eachType = [... new Set(arr)]; //--> elimino repetidos
-    //console.log(eachType);
+    console.log(eachType);
 
     
     eachType.forEach(e => {     //--> los guardo en el modelo (en mi db)
@@ -182,14 +182,15 @@ router.get('/recipes/:id', async (req, res) =>{
     //const infoApi = API; //-->json
     const infoApi = await getApiInfo();
     const infoDb = await getDbInfo();
-    const allinfo = infoApi.results.concat(infoDb);
-    console.log(allinfo)
+    let allInfo = await [...infoApi,...infoDb];
+    //console.log(allinfo)
 
     if(id){
-        let foundRecipeById = allinfo.filter(e => e.id == id);
+        let foundRecipeById = allInfo.filter(e => e.id == id);
         foundRecipeById.length ?
-        res.status(200).send(foundRecipeById) :
+        res.status(200).json(foundRecipeById) :
         res.status(404).json({message:"Receta no encontrada."})
+        console.log(foundRecipeById)
     }
 
 
