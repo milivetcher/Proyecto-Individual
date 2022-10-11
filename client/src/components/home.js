@@ -56,6 +56,7 @@ const Home = ()=>{
   }
   function handleOrderHealth(e){
     e.preventDefault();
+    //console.log(e.target.value);
     dispatch(orderByHealthy(e.target.value));
     setCurrentPage(1);
     setOrden(`Ordenado ${e.target.value}`);

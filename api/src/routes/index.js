@@ -32,7 +32,7 @@ const  getApiInfo = async () => {
             
      })
     
-    console.log(apiInfo)
+    //console.log(apiInfo)
     
     return apiInfo;    }catch(e){
         console.log(e)
