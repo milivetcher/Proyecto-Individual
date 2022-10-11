@@ -24,18 +24,18 @@
 
 .searchTerm:focus{
   color: #4c1823;
-}
+}*/
 
 .searchButton {
   width: 70px;
-  height: 36px;
+  height: 50px;
   border: 1px solid #b5c99a;
   background: #b5c99a;
   text-align: center;
   color: #4c1823;
-  border-radius: 0 5px 5px 0;
+  font-family: 'Times New Roman', Times, serif;
   cursor: pointer;
   font-size: 17px;
-}*/
+}
 
 /*Resize the wrap to see the search bar change!*/
