@@ -79,13 +79,14 @@ function rootReducer (state = initialState, action ){
                 recipes: arrayOrdenadoAlf
             }
         case 'ORDER_BY_HEALTHY':
+            console.log(action.payload)
             let arrayOrdenadoHealthy = action.payload  === 'mostHealthFirst' ?
             state.recipes.sort(function(a,b){
                 if(a.healthScore>b.healthScore){
-                    return 1;
+                    return -1;
                 }
                 if(b.healthScore > a.healthScore){
-                    return -1;
+                    return 1;
                 }
                 return 0;
             }):
@@ -98,7 +99,7 @@ function rootReducer (state = initialState, action ){
                 }
                 return 0;
             })
-
+            console.log(arrayOrdenadoHealthy)
             return{
                 ...state,
                 recipes: arrayOrdenadoHealthy
