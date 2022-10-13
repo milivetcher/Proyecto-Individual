@@ -75,7 +75,7 @@ export default function Detail(props){
                 </div> 
                 </div>:
 
-                <p>Loading...</p>
+                <img src="https://thumbs.gfycat.com/DeliriousSeveralAsianelephant-size_restricted.gif"></img>
                
             
             }

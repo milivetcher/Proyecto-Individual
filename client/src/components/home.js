@@ -114,7 +114,8 @@ const Home = ()=>{
         />
          <div className="container">
         {
-      
+         currentRecipes.length>0?
+         
           currentRecipes?.map(e => {
             //console.log(e)
           
@@ -136,9 +137,13 @@ const Home = ()=>{
             )
             
           })
+          :
+          
+          <img src="https://thumbs.gfycat.com/DeliriousSeveralAsianelephant-size_restricted.gif"></img>
+          
         }
         </div>
-
+        
       </div>      
     </div>
     )
