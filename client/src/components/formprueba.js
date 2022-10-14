@@ -38,11 +38,14 @@ const useForm = (initialForm, validateForm)=>{
     }
     const handleSubmit=(e)=>{
         e.preventDefault();
-        console.log(form);
-        if(errors){
+       //console.log(form);
+       
+        if(Object.keys(errors).length){
+         console.log(errors)
          validateForm(form); 
          return -1
         } 
+        
         dispatch(postRecipe(form));
         alert("¡Receta creada con éxito!");
         setForm({
@@ -153,7 +156,7 @@ const Form=()=>{
 
         </form>
         {form.typeDiets.map(el=>
-               <div>
+               <div key={el+"x"}>
                <a>{el}</a>
                <button className="botonx" onClick={()=> handleDelete(el)}>X</button>
                </div>

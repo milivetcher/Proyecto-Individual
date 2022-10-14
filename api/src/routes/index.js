@@ -10,7 +10,7 @@ const { REAL } = require('sequelize');
 const {Recipe, Type} = require('../db');
 const { Sequelize } = require('sequelize');
 
-const apiKey= 'fe41fdaf492d4e65a222b2175ffd78b2';
+const apiKey= '4f321ae141a945b1a48b6a4ed3846dfe';
 
 
 const  getApiInfo = async () => {
