@@ -31,10 +31,13 @@ const useForm = (initialForm, validateForm)=>{
 
     };
     function handleSelect(e){
+        const found= form.typeDiets.find(e=> e===e.target.value);
+        if(!found){
         setForm({
             ...form,
             typeDiets: [...form.typeDiets, e.target.value]
-        })
+        })}
+    
     }
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -155,12 +158,18 @@ const Form=()=>{
             <button type="submit" value="crear" className="button-crear">Crear</button>
 
         </form>
-        {form.typeDiets.map(el=>
+        
+        { 
+            
+
+            form.typeDiets.map(el=>
                <div key={el+"x"}>
                <a>{el}</a>
                <button className="botonx" onClick={()=> handleDelete(el)}>X</button>
                </div>
-            )}
+            )
+
+            }
         </p>
     
     </div>
