@@ -10,7 +10,7 @@ const { REAL } = require('sequelize');
 const {Recipe, Type} = require('../db');
 const { Sequelize } = require('sequelize');
 
-const apiKey= '4f321ae141a945b1a48b6a4ed3846dfe';
+const apiKey= 'fe41fdaf492d4e65a222b2175ffd78b2';
 
 
 const  getApiInfo = async () => {
@@ -56,10 +56,10 @@ const getDbInfo= async () => {
 
 
 const getAllrecipes = async () => {
-    const apiRecipes = await getApiInfo();
-    //const apiRecipes = API;
+    //const apiRecipes = await getApiInfo();
+    const apiRecipes = API;
     const dbRecipes = await getDbInfo();
-    let allInfo = await [...apiRecipes,...dbRecipes];
+    let allInfo =[...apiRecipes,...dbRecipes];
     
     //console.log(allInfo)
     return allInfo;
@@ -87,10 +87,10 @@ router.get('/recipes', async (req, res) => {
 
     
     const { title } = req.query;
-    //const infoApi = API; //-->json
-    //const infoDb = await getDbInfo();
-    //const allinfo = infoApi.results.concat(infoDb);
-    const allinfo= await getAllrecipes();
+    const infoApi = API; //-->json
+    const infoDb = await getDbInfo();
+    const allinfo = infoApi.results.concat(infoDb);
+    //const allinfo= await getAllrecipes();
     //console.log(allinfo)
     if(!title){
         res.status(200).send(allinfo);
@@ -109,9 +109,9 @@ router.get('/recipes', async (req, res) => {
 
 router.get('/diets', async (req, res) => {
 
-    const infoApi = await getApiInfo() //--> traigo la info de la API
+    //const infoApi = await getApiInfo() //--> traigo la info de la API
     
-    //const infoApi = API;//--> viene en un  json
+    const infoApi = API;//--> viene en un  json
     const obj = infoApi
     console.log(obj)
     
@@ -179,8 +179,8 @@ router.post('/recipe', async (req, res) =>{
 
 router.get('/recipes/:id', async (req, res) =>{
     const {id} = req.params;
-    //const infoApi = API; //-->json
-    const infoApi = await getApiInfo();
+    const infoApi = API; //-->json
+    //const infoApi = await getApiInfo();
     const infoDb = await getDbInfo();
     let allInfo = await [...infoApi,...infoDb];
     //console.log(allinfo)

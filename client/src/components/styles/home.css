@@ -33,7 +33,7 @@
 
 }
 .button-crear-receta:hover{
-  background-color:#b5c99a;
+  background-color:#dde5b6;
   color:#fff4d8;
 }
 .button:hover {
@@ -87,7 +87,7 @@
 
 }
 .principal{
-  background-color: #b5c99a;
+  background-color: #dde5b6;
   padding: 40px;
   color:#fff4d8;
   font-style:unset;
@@ -114,7 +114,7 @@
 
 
 .select {
-  background-color: #4c1823;
+  background-color: #6b414b;
   border-radius: 12px;
   font-size: 14px;
   height: 30px;
